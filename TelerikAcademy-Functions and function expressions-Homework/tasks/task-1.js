@@ -8,26 +8,60 @@
 
 */
 
-function sum(arr) {
+function solve() {
+	return function sum(arr) {
 
-	var sumOfNumbers = 0,
-		i,
-		len;
+		var sumOfNumbers = 0,
+			i,
+			len;
 
-	if(!arr.length) {
-		return null;
+		if(!arr.length) {
+			return null;
+		}
+		else if(arr === undefined) {
+			throw 'Pass an array'
+		}
+		else if(!arr.every(function (item) {
+				return item == Number(item);
+			})) {
+			throw 'Error! All elements should be convertible to numbers'
+		}
+
+		for (i = 0, len = arr.length; i < len; i+=1) {
+			sumOfNumbers += +arr[i];
+		}
+
+		return sumOfNumbers;
 	}
-	else if(!arr.every(function (item) {
-			return item == Number(item);
-		})) {
-		throw 'Error! All elements should be convertible to numbers'
-	}
 
-	for (i = 0, len = arr.length; i < len; i+=1) {
-		sumOfNumbers += +arr[i];
-	}
-
-	return sumOfNumbers;
 }
 
-module.exports = sum;
+
+//function sum(arr) {
+//
+//	var sumOfNumbers = 0,
+//		i,
+//		len;
+//
+//	if(!arr.length) {
+//		return null;
+//	}
+//	else if(arr === undefined) {
+//		throw 'Pass an array'
+//	}
+//	else if(!arr.every(function (item) {
+//			return item == Number(item);
+//		})) {
+//		throw 'Error! All elements should be convertible to numbers'
+//	}
+//
+//	for (i = 0, len = arr.length; i < len; i+=1) {
+//		sumOfNumbers += +arr[i];
+//	}
+//
+//	return sumOfNumbers;
+//}
+//
+//
+//
+//module.exports = sum;
